@@ -1,0 +1,20 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
+zuul:
+  routes:
+    product-service:
+      path: /products/**
+      service-id: product-service
+    order-service:
+      path: /orders/**
+      service-id: order-service
